@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:padding="20dp"
+    tools:context=".OrientationActivity">
+ 
+    <TextView
+        android:id="@+id/heading_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Heading:  "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/heading_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/heading_label"
+        android:text=" "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+ 
+    <TextView
+        android:id="@+id/azimuth_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/heading_label"
+        android:paddingTop="50dp"
+        android:text="Azimuth (about Z):  "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/azimuth_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/azimuth_label"
+        android:layout_alignBottom="@id/azimuth_label"
+        android:text=" "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/pitch_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/azimuth_label"
+        android:text="Pitch (about X):  "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/pitch_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/pitch_label"
+        android:layout_below="@id/azimuth_label"
+        android:text=" "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/roll_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/pitch_label"
+        android:text="Roll (about Y):  "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/roll_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/roll_label"
+        android:layout_below="@id/pitch_label"
+        android:text=" "
+        android:textSize="30sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/counter_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="0"
+        android:textSize="20sp"
+        tools:context=".OrientationActivity" />
+    
+    <TextView
+        android:id="@+id/field_bearing_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="---"
+        android:textColor="#666"
+        android:textSize="20sp"
+        tools:context=".OrientationActivity" />
+    
+    <Button 
+        android:id="@+id/set_neg_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@id/field_bearing_textview"
+        android:text="Set -30"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/set_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/field_bearing_textview"
+        android:layout_centerHorizontal="true"
+        android:text="Set 0"
+        android:textSize="20sp" />
+    
+    <Button 
+        android:id="@+id/set_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/field_bearing_textview"
+        android:text="Set 30"
+        android:textSize="20sp" />
+
+</RelativeLayout>
