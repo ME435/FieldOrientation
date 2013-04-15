@@ -1,11 +1,12 @@
 package edu.rosehulman.fieldorientation;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class OrientationActivity extends Activity implements FieldOrientationListener {
 
@@ -19,10 +20,18 @@ public class OrientationActivity extends Activity implements FieldOrientationLis
   /** Counter for the number of updates received. */
   private long mUpdatesCounter = 0;
   
+  /** Force the screen and CPU to high power mode always. */
+  private PowerManager.WakeLock mWakeLock;
+  
+  @SuppressWarnings("deprecation")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_orientation);
+    
+    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+    mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "Unused TAG");
+    
     mHeadingTextView = (TextView) findViewById(R.id.heading_textview);
     mCounterTextView = (TextView) findViewById(R.id.counter_textview);
     mAzimuthTextView = (TextView) findViewById(R.id.azimuth_textview);
@@ -58,12 +67,14 @@ public class OrientationActivity extends Activity implements FieldOrientationLis
   protected void onStart() {
     super.onStart();
     mFieldOrientation.registerListener(this);
+    mWakeLock.acquire();
   }
   
   @Override
   protected void onStop() {
     super.onStop();
     mFieldOrientation.unregisterListener();
+    mWakeLock.release();
   }
 
   @Override
